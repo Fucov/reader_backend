@@ -4,6 +4,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 小说分类 响应DTO
  *
@@ -12,7 +14,7 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class BookCategoryRespDto {
+public class BookCategoryRespDto implements Serializable {
 
     /**
      * 类别ID
