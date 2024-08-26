@@ -1,11 +1,9 @@
 package io.github.xxyopen.novel.search.service;
 
-
-import io.github.xxyopen.novel.book.dto.req.BookSearchReqDto;
-import io.github.xxyopen.novel.book.dto.resp.BookInfoRespDto;
 import io.github.xxyopen.novel.common.resp.PageRespDto;
 import io.github.xxyopen.novel.common.resp.RestResp;
-
+import io.github.xxyopen.novel.book.dto.req.BookSearchReqDto;
+import io.github.xxyopen.novel.book.dto.resp.BookInfoRespDto;
 /**
  * 搜索 服务类
  *

@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author xiongxiaoyang
  * @version 1.0
- * @since 2020/5/27
+ * @since 2024/5/27
  */
 @SpringBootApplication
 public class NovelGatewayApplication {

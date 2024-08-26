@@ -1,3 +1,4 @@
+/*
 package io.github.xxyopen.novel.search.config;
 
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
@@ -19,28 +20,34 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 
+*/
 /**
  * Elasticsearch 相关配置
  *
  * @author xiongxiaoyang
  * @date 2022/5/23
- */
+ *//*
+
 @Configuration
 @Slf4j
 public class EsConfig {
 
-    /**
+    */
+/**
      * 解决 ElasticsearchClientConfigurations 修改默认 ObjectMapper 配置的问题
-     */
+     *//*
+
     @Bean
     JacksonJsonpMapper jacksonJsonpMapper() {
         return new JacksonJsonpMapper();
     }
 
-    /**
+    */
+/**
      * fix `sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException:
      * unable to find valid certification path to requested target`
-     */
+     *//*
+
     @ConditionalOnProperty(value = "spring.elasticsearch.ssl.verification-mode", havingValue = "none")
     @Bean
     RestClient elasticsearchRestClient(RestClientBuilder restClientBuilder,
@@ -80,3 +87,4 @@ public class EsConfig {
     }
 
 }
+*/
