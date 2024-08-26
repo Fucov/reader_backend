@@ -1,0 +1,26 @@
+<select id="searchBooks" parameterType="map" resultType="BookInfoRespDto">
+    SELECT * FROM book_info
+    WHERE word_count > 0
+    <if test="keyword != null">
+        AND (book_name LIKE CONCAT('%', #{keyword}, '%')
+        OR author_name LIKE CONCAT('%', #{keyword}, '%')
+        OR book_desc LIKE CONCAT('%', #{keyword}, '%'))
+    </if>
+    <if test="workDirection != null">
+        AND work_direction = #{workDirection}
+    </if>
+    <if test="categoryId != null">
+        AND category_id = #{categoryId}
+    </if>
+    <if test="wordCountMin != null">
+        AND word_count >= #{wordCountMin}
+    </if>
+    <if test="wordCountMax != null">
+        AND word_count < #{wordCountMax}
+    </if>
+    <if test="updateTimeMin != null">
+        AND last_chapter_update_time >= #{updateTimeMin}
+    </if>
+    ORDER BY ${sort} DESC
+    LIMIT #{offset}, #{pageSize}
+</select>
