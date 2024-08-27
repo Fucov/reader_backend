@@ -1,13 +1,16 @@
 package io.github.xxyopen.novel.book.controller.front;
 
+import io.github.xxyopen.novel.book.dto.req.BookSearchReqDto;
 import io.github.xxyopen.novel.book.dto.resp.*;
 import io.github.xxyopen.novel.book.service.BookService;
 import io.github.xxyopen.novel.common.constant.ApiRouterConsts;
+import io.github.xxyopen.novel.common.resp.PageRespDto;
 import io.github.xxyopen.novel.common.resp.RestResp;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.NoSuchAlgorithmException;
@@ -151,6 +154,13 @@ public class FrontBookController {
     public RestResp<BookCommentRespDto> listNewestComments(
         @Parameter(description = "小说ID") Long bookId) {
         return bookService.listNewestComments(bookId);
+    }
+
+    @Operation(summary = "小说搜索接口")
+    @GetMapping("books")
+    public RestResp<PageRespDto<BookInfoRespDto>> searchBooks(
+            @ParameterObject BookSearchReqDto condition) {
+        return bookService.searchBooks(condition);
     }
 
 }

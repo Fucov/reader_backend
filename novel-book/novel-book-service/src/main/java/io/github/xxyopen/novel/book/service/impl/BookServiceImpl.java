@@ -469,4 +469,26 @@ public class BookServiceImpl implements BookService {
             .bookContent(content)
             .build());
     }
+
+
+    @Override
+    public RestResp<PageRespDto<BookInfoRespDto>> searchBooks(BookSearchReqDto condition) {
+        Page<BookInfoRespDto> page = new Page<>();
+        page.setCurrent(condition.getPageNum());
+        page.setSize(condition.getPageSize());
+        List<BookInfo> bookInfos = bookInfoMapper.searchBooks(page, condition);
+        return RestResp.ok(
+                PageRespDto.of(condition.getPageNum(), condition.getPageSize(), page.getTotal(),
+                        bookInfos.stream().map(v -> BookInfoRespDto.builder()
+                                .id(v.getId())
+                                .bookName(v.getBookName())
+                                .categoryId(v.getCategoryId())
+                                .categoryName(v.getCategoryName())
+                                .authorId(v.getAuthorId())
+                                .authorName(v.getAuthorName())
+                                .wordCount(v.getWordCount())
+                                .lastChapterName(v.getLastChapterName())
+                                .build()).toList()));
+    }
+
 }

@@ -189,4 +189,13 @@ public interface BookService {
      * @return 小说信息列表
      */
     RestResp<List<BookInfoRespDto>> listBookInfoByIds(List<Long> bookIds);
+
+    /**
+     * 小说搜索
+     *
+     * @param condition 搜索条件
+     * @return 搜索结果
+     */
+    RestResp<PageRespDto<BookInfoRespDto>> searchBooks(BookSearchReqDto condition);
+
 }
